@@ -1,20 +1,11 @@
 ---
-const str = "Gianni's Blog!";
-const obj = {
-  favourite: ["html", "css", "js"],
-};
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>{str}</h1>
-    <ul>{obj.favourite.map((item) => <li>{item}</li>)}</ul>
-  </body>
-</html>
+<MainLayout title="Homepage!" desc="This is my cool new Astro Blog">
+  <h1>Astro Blogs Are Cool!</h1>
+  <p>
+    Will this be more fun to make blogs with rather than NextJS? I guess we
+    shall have to see.
+  </p>
+</MainLayout>
