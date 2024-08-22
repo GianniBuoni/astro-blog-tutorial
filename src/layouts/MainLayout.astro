@@ -1,11 +1,16 @@
 ---
 import MainHead from "../components/MainHead.astro";
 import Footer from "../components/Footer.astro";
-import type { Head } from "../components/MainHead.astro";
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 
-const { title, desc } = Astro.props as Head;
+interface Props {
+  title?: string;
+  desc?: string;
+}
+
+const { title = "My Astro Blog", desc = "My Musings about Astro" } =
+  Astro.props;
 ---
 
 <html lang="en">
