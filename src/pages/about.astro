@@ -1,8 +1,32 @@
 ---
+import Link from "../components/Link.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
 const title = "About Me!";
 const desc = "Everything You Need to Know";
 ---
 
-<MainLayout {title} {desc}>About</MainLayout>
+<MainLayout {title} {desc}>
+  <section class="container about" aria-label="About Me">
+    <img
+      src="/images/headshot.jpg"
+      alt="My headshot"
+      width="200"
+      height="330"
+    />
+    <div class="content">
+      <h1 class="h1">My Blog</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit
+        ducimus facilis, quidem beatae aliquid, earum, delectus itaque voluptate
+        dignissimos veniam accusamus vel ipsa. Dicta unde iusto illo officia
+        necessitatibus. Quam.
+      </p>
+      <Link
+        href="mailto:chris@codinginpublic.dev"
+        text="Contact Me"
+        style="primary"
+      />
+    </div>
+  </section>
+</MainLayout>

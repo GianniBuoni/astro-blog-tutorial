@@ -1,0 +1,29 @@
+---
+import Link from "../components/Link.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Page Not Found.";
+---
+
+<MainLayout {title}>
+  <div
+    class="container"
+    style={{
+      display: "grid",
+      placeItems: "center",
+      textAlign: "center",
+      gap: "var(--space-sm)",
+    }}
+  >
+    <div>
+      <h1 class="h1">Welp!<!--codespell:ignore welp--> This is awkward.</h1>
+      <p>We seem to have misplaced something.</p>
+    </div>
+    <Link
+      href="/"
+      text="Go Home"
+      style="secondary"
+      icon={{ side: "right", name: "tabler:home" }}
+    />
+  </div></MainLayout
+>

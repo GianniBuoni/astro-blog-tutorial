@@ -17,7 +17,9 @@ const { title = "My Astro Blog", desc = "My Musings about Astro" } =
   <MainHead {title} {desc} />
   <body>
     <Nav />
-    <slot>Default Text</slot>
+    <main>
+      <slot>Default Text</slot>
+    </main>
     <Footer />
   </body>
 </html>
