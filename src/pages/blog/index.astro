@@ -1,7 +1,7 @@
 ---
-import PostCard from "../../components/PostCard.astro";
-import MainLayout from "../../layouts/MainLayout.astro";
-import { formatBlogPosts } from "../../lib/utils";
+import PostCard from "@components/PostCard.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { formatBlogPosts } from "@lib/utils";
 
 const allPosts = await Astro.glob("./*.md");
 const formatedPosts = formatBlogPosts(allPosts);

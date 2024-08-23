@@ -1,6 +1,6 @@
 ---
-import MainLayout from "./MainLayout.astro";
-import PostHeader from "../components/PostHeader.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import PostHeader from "@components/PostHeader.astro";
 
 const { frontmatter } = Astro.props;
 const { title, date, author, image, description, category } = frontmatter;

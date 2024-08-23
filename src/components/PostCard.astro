@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import type { ComponentProps } from "astro/types";
-import type PostHeader from "./PostHeader.astro";
-import { slugify } from "../lib/utils";
+
+import type PostHeader from "@components/PostHeader.astro";
+import { slugify } from "@lib/utils";
 
 type FrontmatterProps = ComponentProps<typeof PostHeader>;
 
