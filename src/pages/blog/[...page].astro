@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from "astro";
+
+import MainLayout from "@layouts/MainLayout.astro";
+import Pagination from "@components/Pagination.astro";
+import PostCard from "@components/PostCard.astro";
+import { formatBlogPosts } from "@lib/utils";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await Astro.glob("./*.md");
+  const formatedPosts = formatBlogPosts(allPosts);
+  return paginate(formatedPosts, {
+    pageSize: 3,
+  });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<MainLayout>
+  <section class="container" aria-label="New Blog Post">
+    <h1 class="h1">All Blog Posts ✨</h1>
+    <div class="post-container">
+      {
+        page.data.map((post) => (
+          <PostCard
+            frontmatter={post.frontmatter}
+            url={post.url}
+            tagType="h3"
+          />
+        ))
+      }
+    </div>
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
+</MainLayout>
