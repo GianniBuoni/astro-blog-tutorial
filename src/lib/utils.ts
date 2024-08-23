@@ -18,6 +18,8 @@ interface Posts {
   frontmatter: {
     date: string;
     draft: boolean;
+    author?: string;
+    category?: string;
   };
 }
 
