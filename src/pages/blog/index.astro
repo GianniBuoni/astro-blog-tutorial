@@ -9,14 +9,14 @@ const formatedPosts = formatBlogPosts(allPosts);
 
 <MainLayout>
   <section class="container" aria-label="New Blog Post">
-    <h1 class="h1">New Blog Posts ✨</h1>
+    <h1 class="h1">All Blog Posts ✨</h1>
     <div class="post-container">
       {
         formatedPosts.map((post) => (
           <PostCard
             frontmatter={post.frontmatter}
             url={post.url}
-            tagType="h2"
+            tagType="h3"
           />
         ))
       }
