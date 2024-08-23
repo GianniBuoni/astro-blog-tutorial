@@ -21,3 +21,5 @@
 ## To Try After this Tutorial
 
 - [Astro Collection API](https://docs.astro.build/en/guides/content-collections/)
+- Read more about `getStaticPaths`
+- Learn more about the `Set` object and the `flat` method
