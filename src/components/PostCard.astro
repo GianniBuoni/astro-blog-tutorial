@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "astro/types";
+import type PostHeader from "./PostHeader.astro";
+import { slugify } from "../lib/utils";
+
+type FrontmatterProps = ComponentProps<typeof PostHeader>;
+
+interface Props {
+  url: string;
+  frontmatter: FrontmatterProps;
+  tagType: any;
+}
+
+const { frontmatter, url, tagType } = Astro.props;
+const Tag = tagType;
+---
+
+<article class="card">
+  <small>
+    <a href={`/category/${slugify(frontmatter.category)}`} class="badge"
+      >{frontmatter.category}</a
+    >
+  </small>
+  <a href={url} aria-hidden="true">
+    <Image
+      src={frontmatter.image.src}
+      alt={frontmatter.image.alt}
+      width="400"
+      height="250"
+      format="avif"
+    />
+  </a>
+  <div class="content">
+    <Tag class="h3"><a href={url}>{frontmatter.title}</a></Tag>
+    <small
+      >by <a href={`/author/${slugify(frontmatter.author)}`}
+        >{frontmatter.author}</a
+      ></small
+    >
+  </div>
+  <p>{frontmatter.description}</p>
+</article>
