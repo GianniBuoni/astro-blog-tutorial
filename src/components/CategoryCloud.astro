@@ -1,13 +1,20 @@
 ---
-import { formatBlogPosts, slugify } from "@lib/utils";
+import { getCollection } from "astro:content";
 
-const allBlogPosts = await Astro.glob("../pages/blog/*.md");
-const filteredBlogPosts = formatBlogPosts(allBlogPosts);
-const allCategories = filteredBlogPosts
-  .map((cat) => cat.frontmatter.category!.toLowerCase())
+import { slugify } from "@lib/utils";
+
+const allBlogPosts = await getCollection("blog", ({ data }) => {
+  return data.draft != true;
+});
+const allCategories = allBlogPosts
+  .map((cat) => cat.data.category.toLowerCase())
   .flat();
 
-const processedCats = allCategories.reduce((acc, category) => {
+type CategoryCounts = {
+  [key: string]: number;
+};
+
+const processedCats = allCategories.reduce<CategoryCounts>((acc, category) => {
   const value = acc[category] || 0;
   return {
     ...acc,
